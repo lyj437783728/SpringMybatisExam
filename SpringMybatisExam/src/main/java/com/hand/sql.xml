@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="/">
+
+	<select id="selectCustomer" parameterType="int" resultType="com.Bean.Customer">
+		select * from customer where customer_id = #{id}
+	</select>
+	
+	<select id="checkAddressId" parameterType="int" resultType="int">
+		select count(*) from address where address_id = #{id}
+	</select>
+	
+	<insert id="insertCustomer" parameterType="com.Bean.Customer" >
+		
+		insert into customer(store_id,first_name,last_name,email,address_id,create_date)
+		values(#{store_id},#{first_name},#{last_name},#{email},#{address_id},#{create_date})
+		
+	</insert>
+	
+	<select id="selectLastOne" resultType="com.Bean.Customer">
+		SELECT * FROM customer c ,address a
+		where customer_id = (select max(customer_id) from customer)
+		and c.address_id = a.address_id
+	</select>
+	
+</mapper>
