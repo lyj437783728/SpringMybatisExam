@@ -1,4 +1,5 @@
-进入maven项目文件夹，运行mvn eclipse:eclipse
-再将项目导入eclipse中，运行com.main.Main类，可以完成部分功能。
-另外在运行时会输出很多日志信息，但不影响使用
-在maven下有路径错误，目前还没解决
+进入maven项目文件夹，运行
+mvn clean compile exec:java -Dexec.mainClass="com.main.Main" -Dexec.args="arg0 arg1 arg2"
+完成了插入一条Customer的功能，并且打印出最新插入的那条信息。
+其他功能由于时间关系并未完成，
+数据库配置文件在src/main/resource下dbconfig.properties

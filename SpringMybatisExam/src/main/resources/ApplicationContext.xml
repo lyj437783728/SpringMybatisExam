@@ -7,7 +7,7 @@
 				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 	<!-- 加载数据库配置文件 -->
-	<context:property-placeholder location="com/hand/dbconfig.properties" />
+	<context:property-placeholder location="dbconfig.properties" />
 
 	<!-- c3p0连接池配置 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -41,7 +41,7 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 加载Mybatis的配置文件 -->
-		<property name="configLocation" value="com/hand/MybatisConfig.xml"></property>
+		<property name="configLocation" value="MybatisConfig.xml"></property>
 		<!-- 数据源 -->
 		<property name="dataSource" ref="dataSource" />
 	</bean>
